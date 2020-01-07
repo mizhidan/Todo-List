@@ -12,18 +12,16 @@
             <p class="discription">
                 Simple Todo List with adding and filter by diff status.
             </p>
-            <form id="todo-content" action="#">
-            <input type="text">
-            <button class="add-btn" type="submit">Add</button>                
+            <form id="todo-content" action="#" onsubmit="addItemAndShow()">
+            <input type="text" id="todo">
+            <button class="add-btn" type="submit" id="add-todo">Add</button>                
             </form>
             <ol class="task">
-                <li><input type="checkbox">任务一</li>
-                <li><input type="checkbox">任务二</li>
             </ol>
             <div class="status-btn-list">
-                <button class="status-btn">All</button>
-                <button class="status-btn">Active</button>
-                <button class="status-btn">Complete</button>
+                <button class="status-btn" name="all-btn">All</button>
+                <button class="status-btn" name="active-btn">Active</button>
+                <button class="status-btn" name="complete-btn">Complete</button>
             </div>
         </div>
 

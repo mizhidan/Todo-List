@@ -71,7 +71,12 @@ li:nth-of-type(2n) {
 .status-btn-list button {
     color: #FC999C;
     background-color: inherit;
-    border: 0;
-    outline: 0;
+    padding: 5px;
+    border: 1px solid transparent;
+    outline-color: #ffcbcb;
     margin: 0 0 0 50px;
+}
+
+.status-btn-list button:hover {
+    border: 1px solid #ffcbcb;
 }
