@@ -10,21 +10,31 @@ function TodoList() {
     let dataArr = [];
     localStorage.setItem("todoList", JSON.stringify(dataArr));
   }
-  showContent();
+  initList();
 }
 
 function addTodo() {
   let index = dataArr.length;
-  if(todo.value) {
+  if(todoInput.value) {
     const value = {
       id: index,
-      content: todo.value,
+      content: todoInput.value,
     }
     dataArr.push(value);
     localStorage.setItem("todoList",JSON.stringify(dataArr));
   }
 }
 
+function initList() {
+  item = JSON.parse(localStorage.getItem("todoList"));
+  for(let index = 0; index < item.length; ++index) {
+    var todoItem = document.createElement("li");
+    todoItem.innerHTML = `
+    <input type="checkbox" name="check-item" /><span>${item[index].content}</span>
+  `
+  todoList.appendChild(todoItem);
+  }
+}
 
 function showContent() {
   var todoItem = document.createElement("li");
@@ -35,9 +45,6 @@ function showContent() {
   `
   todoList.appendChild(todoItem);
   }
-
-  
- 
 }
 
 function addItemAndShow() {
