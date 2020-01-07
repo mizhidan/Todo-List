@@ -15,10 +15,14 @@ function TodoList() {
 
 function addTodo() {
   let index = dataArr.length;
+  if(todoInput.value === "") {
+    return;
+  }
   if(todoInput.value) {
     const value = {
       id: index,
       content: todoInput.value,
+
     }
     dataArr.push(value);
     localStorage.setItem("todoList",JSON.stringify(dataArr));
@@ -36,7 +40,10 @@ function initList() {
   }
 }
 
-function showContent() {
+function showContent(status) {
+  if(todoInput.value === "") {
+    return;
+  }
   var todoItem = document.createElement("li");
   item = JSON.parse(localStorage.getItem("todoList"));
   for(let index = 0; index < item.length; ++index) {
@@ -47,9 +54,9 @@ function showContent() {
   }
 }
 
-function addItemAndShow() {
+function addItemAndShow(status) {
   addTodo();
-  showContent();
+  showContent(status);
 }
 
 statusButton.addEventListener("click", event => {
