@@ -2,7 +2,6 @@ var todoList = document.getElementsByClassName("task")[0];
 var todoInput = document.getElementById("todo");
 var addButton = document.getElementById("add-todo");
 var statusButton = document.getElementsByClassName("status-btn-list")[0];
-var dataArr = JSON.parse(localStorage.getItem("todoList"));
 var pageStatus = "all";
 
 function initDataBase() {
@@ -21,6 +20,7 @@ function TodoList() {
 }
 
 function addTodo() {
+  let dataArr = JSON.parse(localStorage.getItem("todoList"));
   let index = dataArr.length;
   if (todoInput.value === "") {
     return;
@@ -57,7 +57,6 @@ function initList() {
 
 function showContent(status) {
   todoList.innerHTML = "";
-  // let item = JSON.parse(localStorage.getItem("todoList"));
   if (status === "active") {
     showActive();
   } else if (status === "complete") {
@@ -65,15 +64,6 @@ function showContent(status) {
   } else {
     initList();
   }
-  // for(let index = 0; index < item.length; ++index) {
-  //   if(item[index].status === status) {
-  //     var todoItem = document.createElement("li");
-  //     todoItem.innerHTML = `
-  //     <input type="checkbox" name="check-item" /><span>${item[index].content}</span>
-  //   `
-  //   todoList.appendChild(todoItem);
-  //   }
-  // }
 }
 
 function showActive() {
