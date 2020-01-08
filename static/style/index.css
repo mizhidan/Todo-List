@@ -80,3 +80,8 @@ li:nth-of-type(2n) {
 .status-btn-list button:hover {
     border: 1px solid #ffcbcb;
 }
+
+.done-item {
+    text-decoration: line-through;
+    color: gray;
+}
